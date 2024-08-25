@@ -27,11 +27,9 @@ const DiscordOauth2 = require("discord-oauth2");
 
 const history = createBrowserHistory();
 history.listen(location => {
-    ReactGA.set({ page: location.pathname }); // Update the user's current page
-    ReactGA.pageview(location.pathname); // Record a pageview for the given page
+    ReactGA.set({ page: location.pathname }); // Met à jour la page actuelle de l'utilisateur
+    ReactGA.pageview(location.pathname); // Enregistre une vue de page pour la page donnée
 });
-
-
 
 function App() {
     const [icon, setIcon] = useState("https://discord.com/assets/2c21aeda16de354ba5334551a883b481.png");
@@ -46,7 +44,7 @@ function App() {
                     setTitle(response.data.guild_name)
                     setLoading(false)
                 } else {
-                    alert("Unable to fetch server from API. Please check all your environment variables.")
+                    alert("Impossible de récupérer le serveur depuis l'API. Veuillez vérifier toutes vos variables d'environnement.")
                 }
             })
     }, [])
@@ -55,9 +53,9 @@ function App() {
         <Router className="App" history={history}>
             <Helmet>
                 <meta charSet="utf-8"/>
-                <title>{process.env.REACT_APP_SITE_TITLE ? process.env.REACT_APP_SITE_TITLE : `${title} Discord Ban Appeal Application`}</title>
+                <title>{process.env.REACT_APP_SITE_TITLE ? process.env.REACT_APP_SITE_TITLE : `${title} Débannissement Kim Café`}</title>
                 <meta name="description"
-                      content={process.env.REACT_APP_SITE_DESCRIPTION ? process.env.REACT_APP_SITE_DESCRIPTION : `${title} Discord Ban Appeal Application`}/>
+                      content={process.env.REACT_APP_SITE_DESCRIPTION ? process.env.REACT_APP_SITE_DESCRIPTION : `${title} Débannissement Kim Café`}/>
                 <link rel="icon" href={icon} type="image/x-icon"/>
             </Helmet>
             <Grid container
@@ -69,8 +67,8 @@ function App() {
                 <Grid item xs={12}>
                     <Box style={{backgroundImage: `url(${process.env.REACT_APP_BANNER_URL})`}} className={"banner"}>
                         {loading ? <Skeleton variant={'rect'} height={150} width={150} style={{'margin': '0 auto'}} /> :
-                            <img alt={title + " Discord Icon"} src={icon} className={"icon"} height={150}/>}
-                        {loading ? <Skeleton variant={'text'} width={750} height={37}/> : <h1>{title} Discord Ban Appeal System</h1>}
+                            <img alt={title + " Icône Discord"} src={icon} className={"icon"} height={150}/>}
+                        {loading ? <Skeleton variant={'text'} width={750} height={37}/> : <h1>{title} Système de demande de débannissement Discord</h1>}
                     </Box>
                 </Grid>
                 <Switch>
