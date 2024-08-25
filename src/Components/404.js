@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import PageNotFound from '../Images/readingtunic.jpg'
+import PageNotFound from '../Images/readingtunic.jpg';
 import {NavLink} from "react-router-dom";
+
 class PageNotFoundError extends Component
 {
     render()
@@ -8,10 +9,10 @@ class PageNotFoundError extends Component
         return (
             <div>
                 <img alt="404 tunic" src={PageNotFound}/>
-                <h1>404 Page Not Found!</h1>
-                <h2>Looks like you went adventuring a little too far.</h2>
+                <h1>404 Page Non Trouvée !</h1>
+                <h2>On dirait que vous êtes allé un peu trop loin dans vos aventures.</h2>
                 <NavLink to="/">
-                    Go Home
+                    Retour à la maison
                 </NavLink>
             </div>
         );
