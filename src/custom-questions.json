@@ -1,12 +1,12 @@
 [
   {
-    "question": "Why were you banned?",
+    "question": "Pourquoi as-tu été banni(e) ?",
     "character_limit": 1024
   }, {
-    "question": "Why do you feel you should be unbanned?",
+    "question": "Pourquoi penses-tu que ton bannissement devrait être levé ?",
     "character_limit": 1024
   }, {
-    "question": "What will you do to avoid being banned in the future?",
+    "question": "Que feras-tu pour éviter d'être banni(e) à l'avenir ?",
     "character_limit": 1024
   }
 ]
