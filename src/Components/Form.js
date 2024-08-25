@@ -13,7 +13,6 @@ import ReactGA from "react-ga";
 const axios = require("axios")
 let questions = require('../custom-questions.json');
 
-
 class Form extends Component {
     constructor(props) {
         super(props);
@@ -54,7 +53,7 @@ class Form extends Component {
     handleSubmit(e) {
         e.preventDefault();
         if (process.env.REACT_APP_ENABLE_HCAPTCHA === "true" && this.state.token === "") {
-            return alert("You must complete hCaptcha to submit this form")
+            return alert("Vous devez compléter le hCaptcha pour soumettre ce formulaire")
         }
         let user_info = {
             username: this.state.user.username,
@@ -83,8 +82,8 @@ class Form extends Component {
             })
             .finally(() => {
                 ReactGA.event({
-                    category: "Submit Ban Appeal",
-                    action: "User submitted a ban appeal",
+                    category: "Soumettre une demande de débannissement",
+                    action: "L'utilisateur a soumis une demande de débannissement",
                 });
             })
     }
@@ -131,13 +130,13 @@ class Form extends Component {
         if (this.state.notBanned) {
             return <Redirect to={{
                 pathname: '/404',
-                state: {errorCode: '403', errorMessage: "It looks like you're not banned... yet..."}
+                state: {errorCode: '403', errorMessage: "Il semble que vous ne soyez pas banni... encore..."}
             }}/>;
         }
         if (this.state.blocked) {
             return <Redirect to={{
                 pathname: '/404',
-                state: {errorCode: '403', errorMessage: "You have been blocked from submitting further ban appeals"}
+                state: {errorCode: '403', errorMessage: "Vous avez été bloqué pour soumettre d'autres demandes de débannissement"}
             }}/>;
         }
 
@@ -150,7 +149,7 @@ class Form extends Component {
                     justify="center"
                     alignItems="center">
                     <Grid item xs={12} className={"avatar"}>
-                        <img alt={"Your discord profile"} src={this.state.avatar_url} height={100}/>
+                        <img alt={"Votre profil Discord"} src={this.state.avatar_url} height={100}/>
                         <h2>{this.state.user.username}#{this.state.user.discriminator}</h2>
                     </Grid>
                     <Grid item xs={12}>
@@ -168,7 +167,7 @@ class Form extends Component {
                                             onExpire={() => this.handleExpiration}/> : null
                                 }
 
-                                <Button variant="contained" type={"submit"}>Submit</Button>
+                                <Button variant="contained" type={"submit"}>Soumettre</Button>
                             </div>
                         </form>
                     </Grid>
